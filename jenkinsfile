@@ -46,7 +46,8 @@ pipeline {
             steps {  
                   sh 'docker images'
 				  sh 'docker pull suryareo/webapp:v1'
-				  sh 'docker run -d -p 8080:8080 suryareo/webapp:v1'
+				  sh 'docker run -d --name webapp_container -p 8080:8080 suryareo/webapp:v1'
+				  sh 'docker exec webapp_container whoami'
 				  
 				
             }
